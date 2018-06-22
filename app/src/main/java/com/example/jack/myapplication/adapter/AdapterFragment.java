@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterFragment extends FragmentPagerAdapter {
-    private List<Fragment> fragments = new ArrayList<>();
+    private List<Fragment> mFragments = new ArrayList<>();
     private FragmentManager fragmentManager;
 
     public AdapterFragment(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
-        this.fragmentManager = fm;
-        this.fragments = fragments;
+        fragments.clear();
+        mFragments.addAll(fragments);
     }
 
     @Override
     public Fragment getItem(int i) {
-        return fragments.get(i);
+        return mFragments.get(i);
     }
 
     @Override
     public int getCount() {
-        return fragments.size();
+        return mFragments.size();
     }
 }
